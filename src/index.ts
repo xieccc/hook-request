@@ -181,6 +181,7 @@ const hookFetch = (options: IOptions, win: Window = window) => {
     parseRequest = (input: RequestInfo | string, init?: RequestInit) => {
       const request: Request = new Request(input, init)
       this.parseURL(request.url)
+      this.context.request.method = request.method 
       this.context.request.headers = this.parseHeaders(request.headers)      
       this.context.request.data = request.body
     }
