@@ -236,17 +236,4 @@ const hookRequest = (optons: IOptions, win = window) => {
   }
 }
 
-hookRequest({
-  onRequest: (context, xhr) => {
-    console.log('onRequest', context, xhr)
-  },
-  onResponse: (context, xhr) => {
-    console.log('onResponse', context, xhr)
-  },
-  onError: (err, context) => {
-    console.log(err, context)
-  }
-})
-
-
 export { hookRequest, hookXHR, hookFetch }
