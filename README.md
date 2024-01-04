@@ -62,7 +62,9 @@ hookRequest({
 
 ## API
 
-### `hookRequest(options: IOptions, win?: Window): { unHook, reHook }`
+### hookRequest
+
+`hookRequest(options: IOptions, win?: Window): { unHook, reHook }`
 
 Hook into both XMLHttpRequest and fetch APIs.
 
@@ -72,10 +74,14 @@ Hook into both XMLHttpRequest and fetch APIs.
 Returns an object with unHook and reHook methods to control the hook.
 
 
-### `hookXHR(options: IOptions, win?: Window): { unHookXHR, reHookXHR }`
+### hookXHR
+
+`hookXHR(options: IOptions, win?: Window): { unHookXHR, reHookXHR }`
 
 Hook into the `XMLHttpRequest`.
 
-### `hookFetch(options: IOptions, win?: Window): { unHookFetch, reHookFetch }`
+### hookFetch
+
+`hookFetch(options: IOptions, win?: Window): { unHookFetch, reHookFetch }`
 
 Hook into the `fetch`.

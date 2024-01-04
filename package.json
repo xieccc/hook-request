@@ -1,29 +1,39 @@
 {
   "name": "hook-request",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "umd": "./dist/index.umd.js",
   "types": "./dist/types/index.d.ts",
   "type": "module",
-  "scripts": {
-    "build": "rollup -c",
-    "build:watch": "rollup -c --watch"
-  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
   "author": {
     "name": "xieccc",
     "email": "xiec135@gmail.com",
     "url": "https://github.com/xieccc"
   },
+  "keywords": [
+    "hook-request",
+    "hook request",
+    "hook",
+    "request"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/xieccc/hook-request"
   },
-  "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "homepage": "https://github.com/xieccc/hook-request",
+  "bugs": {
+    "url": "https://github.com/xieccc/hook-request/issues"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch"
+  },
   "dependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-typescript": "^11.1.5",
