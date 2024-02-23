@@ -16,7 +16,7 @@ const hookXHR = (options: IOptions, win = window) => {
       this.addEventListener('error', this.handleError);
     }
 
-    open = (method: string, url: string | URL, async = true, username?: string | null, password?: string | null) => {
+    open(method: string, url: string | URL, async = true, username?: string | null, password?: string | null) {
       this.context.request.method = method;
       this.parseURL(url)
       this.context.request.auth.username = username ?? null
@@ -24,12 +24,12 @@ const hookXHR = (options: IOptions, win = window) => {
       super.open(method, url, async, username, password)
     }
 
-    setRequestHeader = (name: string, value: string) => {
+    setRequestHeader(name: string, value: string) {
       this.context.request.headers[name] = value
       super.setRequestHeader(name, value)
     }
 
-    send = async (body?: Document | XMLHttpRequestBodyInit | null) => {
+    send(body?: Document | XMLHttpRequestBodyInit | null) {
       this.context.request.data = body
       onRequest?.(this.context, this)
       super.send(body);
