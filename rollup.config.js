@@ -6,18 +6,15 @@ const config = {
     {
       file: './dist/index.js',
       format: "cjs",
-      sourcemap: true
     },
     {
       file: './dist/index.esm.js',
       format: "es",
-      sourcemap: true
     },
     {
       name: "index.umd.js",
       file: './dist/index.umd.js',
       format: "umd",
-      sourcemap: true
     },
   ],
   plugins: [

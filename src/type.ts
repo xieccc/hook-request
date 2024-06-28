@@ -1,34 +1,42 @@
-export interface IRequest {
-  url: string | URL
-  method: string
-  auth: {
-    username: string | null,
-    password: string | null
-  },
-  headers: Record<string, string>
-  params: Record<string, string | string[]>,
-  data?: any,
-}
-
-export interface IResponse {
-  status: number,
-  headers: Record<string, string>,
-  data: any
-}
-
 export enum RequestTypeEnum {
   XHR = 'xhr',
-  Fetch = 'fetch'
+  Fetch = 'fetch',
 }
 
-export interface IContext {
-  type: RequestTypeEnum
-  request: IRequest,
-  response: IResponse
+export type TXHRRequest = {
+  url: string;
+  method: string;
+  async: boolean;
+  auth: {
+    username: string | null;
+    password: string | null;
+  };
+  headers: Headers;
+  data?: any;
+};
+
+export type TFetchRequest = Request;
+
+export type TRequest<T extends RequestTypeEnum> = T extends RequestTypeEnum.XHR ? TXHRRequest : TFetchRequest;
+
+export type TXHRResponse = {
+  status: number;
+  headers: Headers;
+  data: any;
+};
+
+export type TFetchResponse = Response;
+
+export type TResponse<T extends RequestTypeEnum> = T extends RequestTypeEnum.XHR ? TXHRResponse : TFetchResponse;
+
+export interface IContext<T extends RequestTypeEnum> {
+  type: T;
+  request: TRequest<T>;
+  response: TResponse<T>;
 }
 
 export interface IOptions {
-  onRequest?: (context: IContext, xhr?: XMLHttpRequest) => void
-  onResponse?: (context: IContext, xhr?: XMLHttpRequest) => void
-  onError?: (err: any, context: IContext, xhr?: XMLHttpRequest) => void
+  onRequest?: (context: IContext<RequestTypeEnum>, xhr?: XMLHttpRequest) => Promise<void>;
+  onResponse?: (context: IContext<RequestTypeEnum>, xhr?: XMLHttpRequest) => Promise<void>;
+  onError?: (err: any, context: IContext<RequestTypeEnum>, xhr?: XMLHttpRequest) => Promise<void>;
 }

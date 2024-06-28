@@ -1,5 +1,7 @@
 # hook-request
 
+> The project has not fully determined its basic form, and the development version will include disruptive updates.
+
 This library provides a way to hook into the native XMLHttpRequest and Fetch API calls in a browser. It allows you to intercept requests and responses to execute custom logic such as logging.
 
 ## Features
